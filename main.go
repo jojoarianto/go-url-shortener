@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jojoarianto/go-url-shortener/web"
+	"github.com/jojoarianto/go-url-shortener/interface/web"
 )
 
 func main() {
