@@ -14,6 +14,10 @@ import (
 	"gopkg.in/go-playground/validator.v9"
 )
 
+type responseShorten struct {
+	Shortcode string `json:"shortcode"`
+}
+
 // AddShorten method to add shorten
 func AddShorten(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	shorten := model.Shorten{}
@@ -75,8 +79,7 @@ func AddShorten(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		return
 	}
 
-	RespondWithJSON(w, http.StatusCreated, response{
-		Message:    "Added",
-		StatusCode: http.StatusCreated,
+	RespondWithJSON(w, http.StatusCreated, responseShorten{
+		Shortcode: shorten.Shortcode,
 	})
 }
