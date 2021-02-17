@@ -8,6 +8,11 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+const (
+	URIDbConn = "url-shortener.sqlite3"
+	Dialeg    = "sqlite3"
+)
+
 // Run start server
 func Run(port int) error {
 	log.Printf("Server running at http://localhost:%d/", port)
@@ -18,8 +23,8 @@ func Run(port int) error {
 func Routes() *httprouter.Router {
 	r := httprouter.New()
 
-	// Index Route
 	r.GET("/", Index)
+	r.POST("/shorten", AddShorten)
 
 	return r
 }
