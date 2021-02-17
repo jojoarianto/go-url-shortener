@@ -2,6 +2,9 @@
 build: ## build binary file
 	go build -o go-url-shortener main.go
 
+migrate-schema:
+	go run interface/cli/migration/main.go 
+
 run: ## run on development mode
 	go run main.go
 

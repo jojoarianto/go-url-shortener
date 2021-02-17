@@ -11,6 +11,12 @@ clone this project/repository
 ```bash
 git clone https://github.com/jojoarianto/go-url-shortener
 ```
+
+migrate database
+```
+make migrate-schema
+```
+
 run build to download and build binari
 ```bash
 make build
