@@ -2,9 +2,54 @@
 
 Service that imitate TinyURL
 
-## Api Documentation
+## getting started
 
-### POST /shorten
+This project requires go to be installed. on OS X with homebrew you can just run  ```brew install go```
+
+## how to play
+clone this project/repository
+```bash
+git clone https://github.com/jojoarianto/go-url-shortener
+```
+run build to download and build binari
+```bash
+make build
+```
+
+run app
+```bash
+./go-url-shortener
+```
+
+## run with docker
+
+Build script
+```
+docker build --pull --rm -f "Dockerfile" -t gourlshortener:latest .
+```
+
+Run docker container
+```
+docker run --rm -it  -p 3000:3000/tcp gourlshortener:latest
+```
+
+## development mode
+
+to run dev mode run
+```bash
+make run
+```
+
+to run test 
+```bash
+make test
+```
+
+see another make command on makefile
+
+## api documentation
+
+### post /shorten
 
 ```
 POST /shorten
@@ -43,7 +88,7 @@ Error | Description
 422   | The shortcode fails to meet the following regexp: ```^[0-9a-zA-Z_]{6}$```.
 
 
-### GET /:shortcode
+### get /:shortcode
 
 ```
 GET /:shortcode
@@ -69,7 +114,7 @@ Error | Description
 ----- | ------------
 404   | The ```shortcode``` cannot be found in the system
 
-### GET /:shortcode/stats
+### get /:shortcode/stats
 
 ```
 GET /:shortcode/stats
@@ -104,48 +149,3 @@ lastSeenDate      | date of the last time the a redirect was issued, not present
 Error | Description
 ----- | ------------
 404   | The ```shortcode``` cannot be found in the system
-
-### getting started
-
-This project requires go to be installed. on OS X with homebrew you can just run  ```brew install go```
-
-### how to play
-clone this project/repository
-```bash
-git clone https://github.com/jojoarianto/go-url-shortener
-```
-run build to download and build binari
-```bash
-make build
-```
-
-run app
-```bash
-./go-url-shortener
-```
-
-### run with docker
-
-Build script
-```
-docker build --pull --rm -f "Dockerfile" -t gourlshortener:latest .
-```
-
-Run docker container
-```
-docker run --rm -it  -p 3000:3000/tcp gourlshortener:latest
-```
-
-### development mode
-
-to run dev mode run
-```bash
-make run
-```
-
-to run test 
-```bash
-make test
-```
-
-see another make command on makefile
