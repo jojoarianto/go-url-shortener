@@ -54,3 +54,12 @@ func (ss *shortenService) Validate(shorten model.Shorten) error {
 
 	return nil
 }
+
+// GetByShortCode service to create new shorten
+func (ss *shortenService) GetByShortCode(shortcode string) (shorten model.Shorten, err error) {
+	shorten, err = ss.shortenRepo.GetByShortCode(shortcode)
+	if err != nil {
+		return
+	}
+	return
+}
