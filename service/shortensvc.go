@@ -61,5 +61,7 @@ func (ss *shortenService) GetByShortCode(shortcode string) (shorten model.Shorte
 	if err != nil {
 		return
 	}
+
+	err = ss.shortenRepo.UpdateRedirectCount(shorten)
 	return
 }

@@ -31,3 +31,16 @@ func (sr *shortenRepo) GetByShortCode(shortCode string) (model.Shorten, error) {
 	}
 	return data, nil
 }
+
+// Add method to add new shorten
+func (sr *shortenRepo) UpdateRedirectCount(shorten model.Shorten) error {
+	err := sr.Conn.Model(&shorten).
+		Update("redirect_count", (shorten.RedirectCount + 1)).
+		Error
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -26,6 +26,7 @@ func Routes() *httprouter.Router {
 	r.GET("/", Index)
 	r.POST("/shorten", AddShorten)
 	r.GET("/:shortcode", GetLink)
+	r.GET("/:shortcode/stats", GetStats)
 
 	return r
 }
